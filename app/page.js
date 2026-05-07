@@ -1,5 +1,6 @@
 import LikeButton from "./like-button";
 import Avatar from "./avatar";
+import { AvatarLocal } from "./avatar";
 
 /* Header is for React to distinguish it with header(HTML)*/
 function Header(props) {
@@ -38,6 +39,10 @@ export default function HomePage() {
           name: 'Katsuko Saruhashi',
           imageID: 'YfeOqp2'
         }}
+        />
+        <AvatarLocal
+        size={100}
+        person={'gibran'}
         />
       </div>
     </main>
