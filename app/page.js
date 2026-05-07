@@ -1,4 +1,5 @@
 import LikeButton from "./like-button";
+import Avatar from "./avatar";
 
 /* Header is for React to distinguish it with header(HTML)*/
 function Header(props) {
@@ -15,19 +16,30 @@ export default function HomePage() {
   // const state -> [value, updateFunction] = React.useState(initalValue)
 
   return (
-    <div>
-      {" "}
-      HomePage
-      {/* Nesting the Header component */}
-      <Header title="Dev Sonethign somthing" />
-      <SubTitle />
-      <Header title="Second Title" />
-      <ul>
-        {arrayName.map((insides) => (
-          <li key={insides}>{insides}</li>
-        ))}
-      </ul>
-      <LikeButton />
-    </div>
+    <main>
+      <div>
+        {" "}
+        HomePage
+        {/* Nesting the Header component */}
+        <Header title="Dev Sonethign somthing" />
+        <SubTitle />
+        <Header title="Second Title" />
+        <ul>
+          {arrayName.map((insides) => (
+            <li key={insides}>{insides}</li>
+          ))}
+        </ul>
+        <LikeButton />
+      </div>
+      <div>
+        <Avatar
+        size={100}
+        person={{
+          name: 'Katsuko Saruhashi',
+          imageID: 'YfeOqp2'
+        }}
+        />
+      </div>
+    </main>
   );
 }
