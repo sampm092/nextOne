@@ -1,6 +1,10 @@
+'use client'
+
 import LikeButton from "./like-button";
 import Avatar from "./avatar";
 import { AvatarLocal } from "./avatar";
+import { useState } from "react";
+import { sculptureList } from "./data";
 
 /* Header is for React to distinguish it with header(HTML)*/
 function Header(props) {
@@ -15,6 +19,13 @@ function SubTitle(subprops) {
 export default function HomePage() {
   const arrayName = ["Asu", "Koke", "Ayama", "Taure"];
   // const state -> [value, updateFunction] = React.useState(initalValue)
+  const [index, setIndex] = useState(0);
+
+  function nextButton() {
+    setIndex(index + 1);
+  }
+
+  let sculpt = sculptureList[index];
 
   return (
     <main>
@@ -34,16 +45,25 @@ export default function HomePage() {
       </div>
       <div>
         <Avatar
-        size={100}
-        person={{
-          name: 'Katsuko Saruhashi',
-          imageID: 'YfeOqp2'
-        }}
+          size={100}
+          person={{
+            name: "Katsuko Saruhashi",
+            imageID: "YfeOqp2",
+          }}
         />
-        <AvatarLocal
-        size={100}
-        person={'gibran'}
-        />
+        <AvatarLocal size={100} person={"gibran"} />
+      </div>
+      <div>
+        <button onClick={nextButton}>Next</button>
+        <h2>
+          <i>{sculpt.name}</i>
+          by {sculpt.artist}
+        </h2>
+        <h3>
+          ({index + 1} of {sculptureList.length})
+        </h3>
+        <img src={sculpt.url} alt={sculpt.alt} />
+        <p>{sculpt.description}</p>
       </div>
     </main>
   );
